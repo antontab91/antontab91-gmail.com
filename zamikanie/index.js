@@ -31,6 +31,26 @@ console.log(getComSites('netflix'));
 console.log(getComSites('news'));
 
 
+function multiply2(num) {
+    return function (factor) {
+        return num * factor;
+    }
+}
+let multiplier = multiply2(2);
+console.log(multiplier(45));
+
+function endUrlAdder(endUrl) {
+    return function (siteName) {
+        return `${siteName}.${endUrl}`;
+    };
+}
+
+let addComToEnd = endUrlAdder('com');
+console.log(addComToEnd('pornhub'))
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // Написать функцию bind  
 // пример работы:
@@ -42,11 +62,12 @@ function logPerson() {
 const person1 = { name: 'Михаил', age: 22, job: 'Frontend' };
 const person2 = { name: 'Елена', age: 27, job: 'SMM' };
 
-// function bind(func) {
-//     return function (obj) {
+function bind(obj, func) {
+    return func.apply(obj);
+}
 
-//     }
-// }
 
-// bind(person1, logPerson);
-// bind(person2, logPerson);
+
+
+bind(person1, logPerson);
+bind(person2, logPerson);
