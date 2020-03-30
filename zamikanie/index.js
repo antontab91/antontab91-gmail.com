@@ -62,12 +62,16 @@ function logPerson() {
 const person1 = { name: 'Михаил', age: 22, job: 'Frontend' };
 const person2 = { name: 'Елена', age: 27, job: 'SMM' };
 
-function bind(obj, func) {
-    return func.apply(obj);
+function bind(context, func) {
+    return function (xz) {
+        console.log(xz)
+        return func.apply(context);
+    };
 }
 
 
 
 
-bind(person1, logPerson);
-bind(person2, logPerson);
+let test1 = bind(person1, logPerson);
+test1("доп аргумент")
+bind(person2, logPerson)('аргумент в обертке');
