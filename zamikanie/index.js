@@ -29,3 +29,24 @@ let getComSites = getUrl('com');
 console.log(getComSites('google'));
 console.log(getComSites('netflix'));
 console.log(getComSites('news'));
+
+
+
+// Написать функцию bind  
+// пример работы:
+
+function logPerson() {
+    console.log(`Person: ${this.name} ${this.age} ${this.job}`);
+}
+
+const person1 = { name: 'Михаил', age: 22, job: 'Frontend' };
+const person2 = { name: 'Елена', age: 27, job: 'SMM' };
+
+// function bind(func) {
+//     return function (obj) {
+
+//     }
+// }
+
+// bind(person1, logPerson);
+// bind(person2, logPerson);
