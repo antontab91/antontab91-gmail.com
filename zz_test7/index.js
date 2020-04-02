@@ -1,8 +1,8 @@
-// const dayTransactions = [
-//     { currency: 'USD', amount: 60, operation: 'sell' },
-//     { currency: 'EUR', amount: 160, operation: 'buy' },
-//     { currency: 'EUR', amount: 90, operation: 'sell' },
-// ];
+const dayTransactions = [
+    { currency: 'USD', amount: 60, operation: 'sell' },
+    { currency: 'EUR', amount: 160, operation: 'buy' },
+    { currency: 'EUR', amount: 90, operation: 'sell' },
+];
 
 
 
@@ -54,7 +54,7 @@
 
 export const operationMapping = { buy: '-', sell: '+' };
 
-function getTotalBalance(transactionsList) {
+export function getTotalBalance(transactionsList) {
     const result = transactionsList.reduce(function (acc, transactionObj) {
         const { currency, amount, operation } = transactionObj;
         const valueStr = operationMapping[operation] + amount
