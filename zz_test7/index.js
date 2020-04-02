@@ -5,34 +5,67 @@ const dayTransactions = [
 ];
 
 
-//[{ currency: 'USD', amount: 60, operation: 'sell' }...]=>{USD:60}
-function getTotalBalance(trnsactionsList) {
-    const transformedTransaction = trnsactionsList.map(function (transactionObj) {
-        const key = transactionObj.currency;
-        const value = transactionObj.amount;
 
-        // const obj = {};
-        // if (transactionObj.operation === 'sell') {
-        //     obj[key] = -value;
-        // } else {
-        //     obj[key] = value;
-        // }
+// //[{ currency: 'USD', amount: 60, operation: 'sell' }...]=>{USD:60}
+// function getTotalBalance(trnsactionsList) {
+//     const transformedTransaction = trnsactionsList.map(function (transactionObj) {
+//         const key = transactionObj.currency;
+//         const value = transactionObj.amount;
 
-        // obj[key] = transactionObj.operation === 'sell' ? -value : value;
-        const obj = {
-            [key]: transactionObj.operation === 'sell' ? -value : value
-        };
-        return obj;
-    });
+//         // const obj = {};
+//         // if (transactionObj.operation === 'sell') {
+//         //     obj[key] = -value;
+//         // } else {
+//         //     obj[key] = value;
+//         // }
 
-    const result = transformedTransaction.reduce(function (acc, transactionObj) {
-        console.log(transactionObj);
-        Object.assign(acc, transactionObj);
+//         // obj[key] = transactionObj.operation === 'sell' ? -value : value;
+//         const obj = {
+//             [key]: transactionObj.operation === 'sell' ? -value : value
+//         };
+//         return obj;
+//     });
+
+//     const result = transformedTransaction.reduce(function (acc, transactionObj) {
+//         const x = Object.assign(acc, transactionObj);
+//         console.log(x);
+//         console.log(x.EUR + acc)
+//         return acc;
+//     }, {});
+//     // console.log(result)
+//     return result;
+
+// }
+
+
+// function getTotalBalance(transactionsList) {
+//     const result = transactionsList.reduce(function (acc, transactionObj) {
+//         const { currency, amount, operation } = transactionObj;
+//         const value = operation === 'buy' ? amount : -amount
+
+//         acc[currency] = (acc[currency] || 0) + value
+
+//         return acc;
+//     }, {});
+
+//     return result;
+// }
+
+
+const operationMapping = { buy: '-', sell: '+' };
+
+function getTotalBalance(transactionsList) {
+    const result = transactionsList.reduce(function (acc, transactionObj) {
+        const { currency, amount, operation } = transactionObj;
+        const valueStr = operationMapping[operation] + amount
+
+        acc[currency] = (acc[currency] || 0) + +valueStr
+
         return acc;
     }, {});
+
     return result;
 }
 
 const result = getTotalBalance(dayTransactions);
 console.log(result);
-
