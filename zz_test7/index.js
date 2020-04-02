@@ -52,7 +52,7 @@ const dayTransactions = [
 // }
 
 
-const operationMapping = { buy: '-', sell: '+' };
+export const operationMapping = { buy: '-', sell: '+' };
 
 function getTotalBalance(transactionsList) {
     const result = transactionsList.reduce(function (acc, transactionObj) {
