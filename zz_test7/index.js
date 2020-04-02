@@ -1,8 +1,8 @@
-const dayTransactions = [
-    { currency: 'USD', amount: 60, operation: 'sell' },
-    { currency: 'EUR', amount: 160, operation: 'buy' },
-    { currency: 'EUR', amount: 90, operation: 'sell' },
-];
+// const dayTransactions = [
+//     { currency: 'USD', amount: 60, operation: 'sell' },
+//     { currency: 'EUR', amount: 160, operation: 'buy' },
+//     { currency: 'EUR', amount: 90, operation: 'sell' },
+// ];
 
 
 
