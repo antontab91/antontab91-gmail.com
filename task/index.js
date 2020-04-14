@@ -77,3 +77,8 @@ export function getTotalBalance(transactionsList) {
 
 const result = getTotalBalance(dayTransactions);
 console.log(result);
+
+
+function margeObjects(obj1, obj2) {
+
+}
